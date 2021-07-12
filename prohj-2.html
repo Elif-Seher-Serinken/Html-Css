@@ -1,0 +1,591 @@
+<!doctype html>
+<html lang="tr">
+
+<head>
+    <meta charset="utf-8">
+    <title> Yaz-Boz</title>
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.0.0-beta3/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-eOJMYsd53ii+scO/bJGFsiCZc+5NDVN2yr8+0RDqr0Ql0h+rP48ckxlpbzKgwra6" crossorigin="anonymous">
+    <script src="https://cdn.jsdelivr.net/npm/@popperjs/core@2.9.1/dist/umd/popper.min.js" integrity="sha384-SR1sx49pcuLnqZUnnPwx6FCym0wLsk5JZuNx2bPPENzswTNFaQU1RDvt3wT4gWFG" crossorigin="anonymous"></script>
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.0.0-beta3/dist/js/bootstrap.min.js" integrity="sha384-j0CNLUeiqtyaRmlzUHCPZ+Gy5fQu0dQ6eZ/xAww941Ai1SxSY+0EQqNXNE6DZiVc" crossorigin="anonymous"></script>
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.0.1/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-+0n0xVW2eSR5OomGNYDnhzAbDsOXxcvSN1TPprVMTNDbiYZCxYbOOl7+AMvyTG2x" crossorigin="anonymous">
+    <!-- Sweet alert src -->
+    <script src="https://unpkg.com/sweetalert/dist/sweetalert.min.js"></script>
+
+    <style>
+        .table {
+            font: .7em Arial;
+            border: 1px solid gray;
+            padding: 3px;
+            width: 100%;
+            color: red;
+            border-collapse: collapse;
+            text-align: center;
+        }
+        
+        #th1 {
+            background-color: #04AA6D;
+            color: white;
+        }
+        
+        #firstPage {
+            background-image: url(https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcRA2-CAoV5UAz12gBvoMc-PDI-AVMwTkovx11kCljvB5vYK32Fjgu4tosiO28-KVHoyWXc&usqp=CAU);
+            background-size: cover;
+            height: 100%;
+            width: 50%;
+            padding-left: 10%;
+            padding-right: 10%;
+            padding-top: 5%;
+        }
+        
+        h1 {
+            background-color: #04AA6D;
+        }
+        
+        .user_1 {
+            text-align: center;
+            align-items: center;
+            align-content: center;
+            padding-top: 10%;
+            margin-right: 60%;
+        }
+        
+        .user_2 {
+            text-align: center;
+            align-items: center;
+            align-content: center;
+            margin-left: 60%;
+        }
+        
+        .user_3 {
+            text-align: center;
+            align-items: center;
+            align-content: center;
+            padding-top: 10%;
+            margin-right: 60%;
+        }
+        
+        .user_4 {
+            text-align: center;
+            align-items: center;
+            align-content: center;
+            margin-left: 60%;
+        }
+    </style>
+</head>
+
+<body>
+    <div id="secondPage">
+        <div class="input-group mb-3">
+            <img src="" alt="" id="userOneInTableFile" class="img-thumbnail">
+            <img src="" alt="" id="userTwoInTableFile" class="img-thumbnail">
+            <img src="" alt="" id="userThreeInTableFile" class="img-thumbnail">
+            <img src="" alt="" id="userFourInTableFile" class="img-thumbnail">
+        </div>
+    </div>
+    <div>
+        <div id="firstPage">
+            <div class="container">
+                <h1>YAZ-BOZ</h1>
+                <div class="user_1">
+
+                    <div class="input-group mb-3">
+                        <div class="image-preview">
+                            <img src="" alt="" id="imgUserOne" class="img-fluid">
+                        </div>
+                        <div class="input-group-text">
+                            <input id="chbx1" class="form-check-input mt-0" type="checkbox" aria-label="Checkbox for following text input">
+
+                        </div>
+                        <input id="FirstPlayer" type="text" class="form-control" aria-label="Text input with checkbox">
+                        <input class="form-control form-control-sm" id="formFileSm1" onchange="showPreviewOne(event);" type="file">
+
+                    </div>
+
+                </div>
+
+                <div class="user_2">
+
+                    <div class="input-group mb-3">
+                        <div class="image-preview">
+                            <img src="" alt="" id="imgUserTwo" class="img-fluid">
+                        </div>
+                        <div class="input-group-text">
+                            <input id="chbx2" class="form-check-input mt-0" type="checkbox" aria-label="Checkbox for following text input">
+                        </div>
+                        <input id="SecondPlayer" type="text" class="form-control" aria-label="Text input with checkbox">
+                        <input class="form-control form-control-sm" id="formFileSm2" onchange="showPreviewTwo(event);" type="file">
+                    </div>
+
+                </div>
+                <div class="user_3">
+
+
+                    <div class="input-group mb-3">
+                        <div class="image-preview">
+                            <img src="" alt="" id="imgUserThree" class="img-fluid">
+                        </div>
+                        <div class="input-group-text">
+                            <input id="chbx3" class="form-check-input mt-0" type="checkbox" aria-label="Checkbox for following text input">
+                        </div>
+                        <input id="ThirdPlayer" type="text" class="form-control" aria-label="Text input with checkbox">
+                        <input class="form-control form-control-sm" id="formFileSm3" onchange="showPreviewThree(event);" type="file">
+                    </div>
+
+                </div>
+                <div class="user_4">
+
+                    <div class="input-group mb-3">
+                        <div class="image-preview">
+                            <img src="" alt="" id="imgUserFour" class="img-fluid">
+                        </div>
+                        <div class="input-group-text">
+                            <input id="chbx4" class="form-check-input mt-0" type="checkbox" aria-label="Checkbox for following text input">
+                        </div>
+                        <input id="LastPlayer" type="text" class="form-control" aria-label="Text input with checkbox">
+                        <input class="form-control form-control-sm" id="formFileSm4" onchange="showPreviewFour(event);" type="file">
+                    </div>
+
+                </div>
+                <div>
+                    <select id="Numbers">
+                    <!-- <option value="choose " selected>Choose Your Tour Number</option> -->
+                    <option value="7" >7</option>
+                    <option value="9" >9</option>
+                    <option value="11">11</option>
+                    <option value="13">13</option>
+                    </select>
+
+                </div>
+                <button type="button" id="save" onclick="userNames()">Save</button>
+            </div>
+        </div>
+
+
+        <div id="userFight" style="display: none;">
+            <table class="table table-dark">
+                <thead>
+                    <tr>
+                        <th id="cross">#</th>
+                        <th id="playerFight1"></th>
+                        <th id="playerFight2"></th>
+                        <th id="playerFight3"></th>
+                        <th id="playerFight4"></th>
+                    </tr>
+                </thead>
+                <tbody>
+                    <tr>
+                        <th id="playerFight11"></th>
+                        <th class="mustBeNone"></th>
+                        <th id="1-2"></th>
+                        <th id="1-3"></th>
+                        <th id="1-4"></th>
+                    </tr>
+                    <tr>
+                        <th id="playerFight22"></th>
+                        <th id="2-1"></th>
+                        <th class="mustBeNone"></th>
+                        <th id="2-3"></th>
+                        <th id="2-4"></th>
+                    </tr>
+                    <tr>
+                        <th id="playerFight33"></th>
+                        <th id="3-1"></th>
+                        <th id="3-2"></th>
+                        <th class="mustBeNone"></th>
+                        <th id="3-4"></th>
+                    </tr>
+                    <tr>
+                        <th id="playerFight44"></th>
+                        <th id="4-1"></th>
+                        <th id="4-2"></th>
+                        <th id="4-3"></th>
+                        <th class="mustBeNone"></th>
+                    </tr>
+                </tbody>
+            </table>
+        </div>
+
+    </div>
+    <script>
+        var elnumber = parseInt($('#Numbers').val());
+        var array1 = [];
+        var array2 = [];
+        var array3 = [];
+        var array4 = [];
+        var person1, person2, person3, person4;
+        var player1total;
+        var player2total;
+        var player3total;
+        var player4total;
+        var moreChecked = 0;
+        var userChecked;
+        var index = 0;
+        var allUserPoint = new Array();
+        var elnumber;
+        var srcUserOne, srcUserTwo, srcUserThree, srcUserFour;
+
+
+        function showPreviewOne(event) {
+            if (event.target.files.length > 0) {
+                srcUserOne = URL.createObjectURL(event.target.files[0]);
+                let preview = document.getElementById("imgUserOne");
+                preview.src = srcUserOne;
+            }
+        }
+
+        function showPreviewTwo(event) {
+            if (event.target.files.length > 0) {
+                srcUserTwo = URL.createObjectURL(event.target.files[0]);
+                let preview = document.getElementById("imgUserTwo");
+                preview.src = srcUserTwo;
+            }
+        }
+
+        function showPreviewThree(event) {
+            if (event.target.files.length > 0) {
+                srcUserThree = URL.createObjectURL(event.target.files[0]);
+                let preview = document.getElementById("imgUserThree");
+                preview.src = srcUserThree;
+            }
+        }
+
+        function showPreviewFour(event) {
+            if (event.target.files.length > 0) {
+                srcUserFour = URL.createObjectURL(event.target.files[0]);
+                let preview = document.getElementById("imgUserFour");
+                preview.src = srcUserFour;
+            }
+        }
+
+        function tableUserImageAdd() {
+
+            let img1InTable = document.getElementById("userOneInTableFile");
+            img1InTable.src = srcUserOne;
+
+            let img2InTable = document.getElementById("userTwoInTableFile")
+            img2InTable.src = srcUserTwo;
+
+            let img3InTable = document.getElementById("userThreeInTableFile")
+            img3InTable.src = srcUserThree;
+
+            let img4InTable = document.getElementById("userFourInTableFile")
+            img4InTable.src = srcUserFour;
+        }
+
+
+
+
+        function userNames() {
+
+
+            person1 = $("#FirstPlayer").val();
+            person2 = $("#SecondPlayer").val();
+            person3 = $("#ThirdPlayer").val();
+            person4 = $("#LastPlayer").val();
+            elnumber = parseInt($('#Numbers').val());
+            userFightNameWriteFunc();
+            checkedUser();
+
+            if (moreChecked != 1) {
+                alert("lütfen birden fazla input seçme");
+            } else {
+                $("#firstPage ").remove();
+                openTable();
+                $("#userFight").show();
+                hoverCells(userChecked);
+                tableUserImageAdd();
+            }
+
+        }
+
+        function openTable() {
+            $("#secondPage").append("<table  id='table'class='table'>");
+            $("#table").append("<thead id='th1'> ");
+            $("#table").append("</thead>");
+            $("#table").append("<tbody id='tb1'>");
+            $("#table").append("</tbody>");
+            $("#secondPage").append("</table>");
+
+            $("#th1").append('<tr><td> "el sayısı" </td><td>' + person1 + '</td><td>' + person2 + '</td><td>' + person3 + '</td><td> ' + person4 + ' </td><td  id="check"> Checkbox </td></tr>');
+            for (let i = 1; i < elnumber + 1; i++) {
+                $("#tb1").append('<tr><td >' + i + '</td><td id="oyun1"> <input id="oyuncu1' + i + '"> </td><td id="oyun2"><input id="oyuncu2' + i + '"></td> <td id="oyun3"> <input id ="oyuncu3' + i + '"> </td><td id="oyun4"><input id="oyuncu4' + i + '"></td><td id="check1' + i + '"> <input type ="checkbox" id ="check"  name ="checkname' + i + '" onclick = "AddUser()" > </td></tr>');
+            }
+            $("#tb1").append('<tr><td> "toplam" </td><td> <input id="sum1"> </td><td > <input id = "sum2"></td><td><input id="sum3"></td><td><input id="sum4"></td><td><input type="checkbox" id="check"></td></tr>');
+
+
+        }
+
+
+        function AddUser() {
+            player1total = 0;
+            player2total = 0;
+            player3total = 0;
+            player4total = 0;
+
+
+            for (let i = 0; i < elnumber; i++) {
+
+                // array1.push($("input[id = oyuncu1" + i + "]").val());
+                array1.push($("#oyuncu1" + i).val());
+                array2.push($("#oyuncu2" + i).val());
+                array3.push($("#oyuncu3" + i).val());
+                array4.push($("#oyuncu4" + i).val());
+            }
+
+            $("#oyuncu1" + (index + 1)).prop("disabled", true);
+            $("#oyuncu2" + (index + 1)).prop("disabled", true);
+            $("#oyuncu3" + (index + 1)).prop("disabled", true);
+            $("#oyuncu4" + (index + 1)).prop("disabled", true);
+
+            index++;
+            ToplamF();
+
+
+        }
+
+        function ToplamF() {
+            for (let i = 0; i < elnumber; i++) {
+                if (parseInt($("#oyuncu1" + i).val())) {
+
+                    player1total += parseInt($("#oyuncu1" + i).val());
+                    $("#sum1").val(player1total);
+                }
+                if (parseInt($("#oyuncu2" + i).val())) {
+
+                    player2total += parseInt($("#oyuncu2" + i).val());
+                    $("#sum2").val(player2total);
+                }
+                if (parseInt($("#oyuncu3" + i).val())) {
+
+                    player3total += parseInt($("#oyuncu3" + i).val());
+                    $("#sum3").val(player3total);
+                }
+                if (parseInt($("#oyuncu4" + i).val())) {
+
+                    player4total += parseInt($("#oyuncu4" + i).val());
+                    $("#sum4").val(player4total);
+
+                }
+
+            }
+            let userBGarray = [player1total, player2total, player3total, player4total];
+
+            userBGarray.sort((a, b) => a - b);
+            let colorArray = ["#40ff00", " #ccff66", " #ff9933", "#ff3300"];
+
+            for (let i = 0; i < userBGarray.length; i++) {
+                if (player1total == userBGarray[i]) {
+                    $("#sum1").text(player1total);
+                    $("#sum1").css("background-color", colorArray[i]);
+                    $("#oyun1").css("background-color", colorArray[i]);
+                }
+                if (player2total == userBGarray[i]) {
+                    $("#sum2").text(player2total);
+                    $("#sum2").css("background-color", colorArray[i]);
+                    $("#oyun2").css("background-color", colorArray[i]);
+
+                }
+                if (player3total == userBGarray[i]) {
+                    $("#sum3").text(player3total);
+                    $("#sum3").css("background-color", colorArray[i]);
+                    $("#oyun3").css("background-color", colorArray[i]);
+
+                }
+                if (player4total == userBGarray[i]) {
+                    $("#sum4").text(player4total);
+                    $("#sum4").css("background-color", colorArray[i]);
+                    $("#oyun4").css("background-color", colorArray[i]);
+
+                }
+
+            }
+            arrayAdder();
+
+        }
+
+        function checkedUser() {
+
+            let chbx1 = document.getElementById("chbx1");
+            let chbx2 = document.getElementById("chbx2");
+            let chbx3 = document.getElementById("chbx3");
+            let chbx4 = document.getElementById("chbx4");
+
+            if (chbx1.checked) {
+                userChecked = person1;
+                moreChecked++;
+            }
+            if (chbx2.checked) {
+                userChecked = person2;
+                moreChecked++;
+            }
+            if (chbx3.checked) {
+                userChecked = person3;
+                moreChecked++;
+            }
+            if (chbx4.checked) {
+                userChecked = person4;
+                moreChecked++;
+            }
+        }
+
+
+
+        // color array 
+        function userFightNameWriteFunc() {
+            $("#playerFight1").text(person1);
+            $("#playerFight2").text(person2);
+            $("#playerFight3").text(person3);
+            $("#playerFight4").text(person4);
+            $("#playerFight11").text(person1);
+            $("#playerFight22").text(person2);
+            $("#playerFight33").text(person3);
+            $("#playerFight44").text(person4);
+            $(".mustBeNone").text("X");
+        }
+
+
+        function hoverCells(selectedUser) {
+            console.log(selectedUser);
+
+            if (selectedUser == person1) {
+                for (let i = 0; i < elnumber; i++) {
+                    if (i % 4 == 0) {
+                        $("#oyuncu1" + (i + 1)).css("background-color", "#ffe6e6");
+                    }
+                    if (i % 4 == 1) {
+                        $("#oyuncu2" + (i + 1)).css("background-color", "#ffe6e6");
+                    }
+                    if (i % 4 == 2) {
+                        $("#oyuncu3" + (i + 1)).css("background-color", "#ffe6e6");
+                    }
+                    if (i % 4 == 3) {
+                        $("#oyuncu4" + (i + 1)).css("background-color", "#ffe6e6");
+                    }
+                }
+
+            }
+
+            if (selectedUser == person2) {
+                for (let i = 0; i < elnumber; i++) {
+                    if (i % 4 == 0) {
+                        $("#oyuncu2" + (i + 1)).css("background-color", "#ffe6e6");
+                    }
+                    if (i % 4 == 1) {
+                        $("#oyuncu3" + (i + 1)).css("background-color", "#ffe6e6");
+                    }
+                    if (i % 4 == 2) {
+                        $("#oyuncu4" + (i + 1)).css("background-color", "#ffe6e6");
+                    }
+                    if (i % 4 == 3) {
+                        $("#oyuncu1" + (i + 1)).css("background-color", "#ffe6e6");
+                    }
+                }
+
+            }
+            if (selectedUser == person3) {
+                for (let i = 0; i < elnumber; i++) {
+                    if (i % 4 == 0) {
+                        $("#oyuncu3" + (i + 1)).css("background-color", "#ffe6e6");
+                    }
+                    if (i % 4 == 1) {
+                        $("#oyuncu4" + (i + 1)).css("background-color", "#ffe6e6");
+                    }
+                    if (i % 4 == 2) {
+                        $("#oyuncu1" + (i + 1)).css("background-color", "#ffe6e6");
+                    }
+                    if (i % 4 == 3) {
+                        $("#oyuncu2" + (i + 1)).css("background-color", "#ffe6e6");
+                    }
+                }
+            }
+            if (selectedUser == person4) {
+                for (let i = 0; i < elnumber; i++) {
+                    if (i % 4 == 0) {
+                        $("#oyuncu4" + (i + 1)).css("background-color", "#ffe6e6");
+                    }
+                    if (i % 4 == 1) {
+                        $("#oyuncu1" + (i + 1)).css("background-color", "#ffe6e6");
+                    }
+                    if (i % 4 == 2) {
+                        $("#oyuncu2" + (i + 1)).css("background-color", "#ffe6e6");
+                    }
+                    if (i % 4 == 3) {
+                        $("#oyuncu3" + (i + 1)).css("background-color", "#ffe6e6");
+                    }
+                }
+            }
+        }
+
+        function arrayAdder() {
+            allUserPoint = [];
+
+            allUserPoint.push(parseInt(player1total));
+            allUserPoint.push(parseInt(player2total));
+            allUserPoint.push(parseInt(player3total));
+            allUserPoint.push(parseInt(player4total));
+            secondTableWrite();
+
+
+
+
+        }
+
+        function secondTableWrite() {
+
+            for (let i = 1; i <= 4; i++) {
+                for (let j = 1; j <= 4; j++) {
+                    let sum = allUserPoint[i - 1] - allUserPoint[j - 1];
+                    console.log(sum);
+                    if (i == 1) {
+                        let res = player1total - parseInt(allUserPoint[j - 1]);
+                        if (res < 0) {
+                            $('#' + i + '-' + j).css("background-color", "#40ff00");
+                        } else if (res == 0) {
+                            $('#' + i + '-' + j).css("background-color", "#ff9933");
+                        } else {
+                            $('#' + i + '-' + j).css("background-color", "#ff3300");
+                        }
+                        $('#' + i + '-' + j).text(Math.abs(res));
+                    }
+                    if (i == 2) {
+                        let res = player2total - parseInt(allUserPoint[j - 1]);
+                        if (res < 0) {
+                            $('#' + i + '-' + j).css("background-color", "#40ff00");
+                        } else if (res == 0) {
+                            $('#' + i + '-' + j).css("background-color", "#ff9933");
+                        } else {
+                            $('#' + i + '-' + j).css("background-color", "#ff3300");
+                        }
+                        $('#' + i + '-' + j).text(Math.abs(res));
+                    }
+                    if (i == 3) {
+                        let res = player3total - parseInt(allUserPoint[j - 1]);
+                        if (res < 0) {
+                            $('#' + i + '-' + j).css("background-color", "#40ff00");
+                        } else if (res == 0) {
+                            $('#' + i + '-' + j).css("background-color", "#ff9933");
+                        } else {
+                            $('#' + i + '-' + j).css("background-color", "#ff3300");
+                        }
+                        $('#' + i + '-' + j).text(Math.abs(res));
+                    }
+                    if (i == 4) {
+                        let res = player4total - parseInt(allUserPoint[j - 1]);
+                        if (res < 0) {
+                            $('#' + i + '-' + j).css("background-color", "#40ff00");
+                        } else if (res == 0) {
+                            $('#' + i + '-' + j).css("background-color", "#ff9933");
+                        } else {
+                            $('#' + i + '-' + j).css("background-color", "#ff3300");
+                        }
+                        $('#' + i + '-' + j).text(Math.abs(res));
+                    }
+                }
+
+            }
+        }
+    </script>
+</body>
+
+</html>

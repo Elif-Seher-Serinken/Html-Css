@@ -1,0 +1,171 @@
+<!doctype html>
+<html lang="en">
+
+<head>
+    <title>REHBER</title>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css">
+    <link rel='stylesheet' href='https://cdnjs.cloudflare.com/ajax/libs/limonte-sweetalert2/6.6.6/sweetalert2.min.css'>
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.16.0/umd/popper.min.js"></script>
+    <script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.5.2/js/bootstrap.min.js"></script>
+    <script src='https://cdnjs.cloudflare.com/ajax/libs/limonte-sweetalert2/6.6.6/sweetalert2.js'></script>
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.0.1/dist/js/bootstrap.bundle.min.js" integrity="sha384-gtEjrD/SeCtmISkJkNUaaKMoLD0//ElJ19smozuHV6z3Iehds+3Ulb9Bn9Plx0x4" crossorigin="anonymous"></script>
+    <script src="https://cdn.jsdelivr.net/npm/sweetalert2@11.0.16/dist/sweetalert2.all.min.js"></script>
+
+</head>
+
+
+<body>
+    <div class="container">
+        <div class="text-center margin">
+            <h1 class="display-4">REHBER</h1>
+        </div>
+        <div class="text-center margin">
+            <button type="button" class="btn btn-info btn-lg" onclick="openModal()">Kişi Ekle</button>
+        </div>
+
+
+        <div class="table-responsive" id="tableDiv">
+            <table class="table" id="table">
+                <thead>
+                    <tr>
+                        <th scope="col">#</th>
+                        <th scope="col">Ad</th>
+                        <th scope="col">Soyad</th>
+                        <th scope="col">Email</th>
+                        <th scope="col">Telefon</th>
+                    </tr>
+                </thead>
+                <tbody id="tableBody">
+                </tbody>
+            </table>
+        </div>
+    </div>
+
+    <div id="myModal" class="modal fade" role="dialog">
+        <div class="modal-dialog">
+            <!-- Modal content-->
+            <div class="modal-content">
+                <div class="modal-header">
+                    <h4 class="modal-title" id="modalhead">Kişi Bilgileri</h4>
+                </div>
+                <div class="modal-body text-center" id="modalBody">
+                    <input class="col-12" type="text" placeholder="İsim:" id="mName">
+                    <input class="col-12" type="text" placeholder="Soyisim:" id="mSurname">
+                    <input class="col-12" type="email" placeholder="Email:" id="mMail">
+                    <input class="col-12" type="tel" placeholder="Telefon:" id="mPhone">
+                </div>
+                <div class="modal-footer" id="foot">
+                    <button type="submit" class="btn btn-success" data-dismiss="modal" id="modalAddBtn" onclick="">Kaydet</button>
+                </div>
+            </div>
+        </div>
+    </div>
+
+
+
+    <script>
+        $.ajax({
+            url: 'https://projectone.proxolab.com/api/contacts',
+            type: 'GET',
+            headers: {
+                'x-api-key': 'FciW-FEBC-9WYc-oyc6',
+            },
+            data: {
+
+            },
+            beforeSend: function() {
+
+            },
+            success: function(data) {
+                console.log(data)
+                for (var i = 0; i <= data.message.length; i++) {
+                    $("#tableBody").append('<tr id="kisisira-' + data.message[i].id + '">  <td id="id-' + i + '">' + data.message[i].id + '</td> <td id="name-' + i + '">' + data.message[i].name + '</td><td id="surname-' + i + '">' + data.message[i].surname + '</td><td id="mail-' + i + '">' + data.message[i].email + '</td><td id="phone-' + i + '">' + data.message[i].phone + '</td><td><button type="button" class="btn btn-success" onclick="updateModal(' + i + ')">Düzenle</button><button type="button" class="btn btn-danger" onclick="deletePerson(' + data.message[i].id + ')">Sil</button></td></tr>');
+                }
+
+
+            }
+        });
+
+
+        function openModal() {
+
+            $('#modalAddBtn').attr('onclick', 'addPerson()')
+
+        }
+
+        function addPerson() {
+            $('#myModal').modal('hide');
+            $("#tableBody").append('<tr id="kisisira-' + data.message.id + '"><td id="name-' + data.message.id + '">' + $('#mName').val() + '</td><td id="surname-' + data.message.id + '">' + $('#mSurname').val() + '</td><td id="mail-' + data.message.id + '">' + $('#mMail').val() + '</td><td id="phone-' + data.message.id + '">' + $('#mPhone').val() + '</td><td><button type="button" class="btn btn-success" onclick="updateModal(' + data.message.id + ')">Düzenle</button><button type="button" class="btn btn-danger" onclick="deletePerson(' + data.message.id + ')">Sil</button></td></tr>');
+            $.ajax({
+                url: 'https://projectone.proxolab.com/api/contact',
+                type: 'post',
+                headers: {
+                    'x-api-key': 'FciW-FEBC-9WYc-oyc6',
+                    data: {
+                        name: $("#mName").val(),
+                        surname: $("#mSurname").val(),
+                        phone: $("#mPhone").val(),
+                        email: $("#mMail").val(),
+                    },
+                    beforeSend: function() {
+
+                    },
+                    success: function(data) {
+                        console.log(data.message.id);
+
+
+                    }
+                }
+            });
+        }
+
+
+        function deletePerson(rowId) {
+            console.log(rowId);
+            $('#personTr-' + rowId).remove();
+
+            $.ajax({
+                url: 'https://projectone.proxolab.com/api/contact',
+                type: 'DELETE',
+                headers: {
+                    'x-api-key': 'FciW-FEBC-9WYc-oyc6',
+                },
+                data: {
+                    contactId: rowId
+                },
+                beforeSend: function() {
+
+                },
+                success: function(data) {
+                    console.log(data);
+                    if (data.response === "Success") {
+                        $('#kisisira-' + rowId).remove();
+                    }
+                }
+            });
+        }
+
+        function updateModal(rowId) {
+            $('#modalAddBtn').attr('onclick', 'updatePerson(' + rowId + ')')
+            $('#mName').val($('#name-' + rowId).text());
+            $('#mSurname').val($('#surname-' + rowId).text());
+            $('#mMail').val($('#mail-' + rowId).text());
+            $('#mPhone').val($('#phone-' + rowId).text());
+            $('#myModal').modal('show');
+        }
+
+        function updatePerson(rowId) {
+            console.log(rowId)
+            $('#name-' + rowId).text($('#mName').val());
+            $('#surname-' + rowId).text($('#mSurname').val());
+            $('#mail-' + rowId).text($('#mMail').val());
+            $('#phone-' + rowId).text($('#mPhone').val());
+            $('#myModal').modal('hide');
+        }
+    </script>
+</body>
+
+</html>
